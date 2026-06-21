@@ -1,0 +1,2 @@
+T001|Danish Taimoor|Male|Faculty of Computing|MS Artificial Intelligence|Lecturer|ICT|304|2|03169988670|dani29@gmail.com|D@nish..|Pending
+T002|Samia Laraib|Female|Faculty of Allied Health Science|MBBS|Lecturer|Anatomy|402|3|03246742011|dr.samia123@gmail.com|dr.sam123|Pending

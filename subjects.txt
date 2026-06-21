@@ -1,0 +1,3 @@
+CSC101|ICT|3
+AHS209|Anatomy|3
+SS102|Psychology|3

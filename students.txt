@@ -1,0 +1,2 @@
+BSCS24101023|Ahmed Raza|Raza Ahmed|Male|21|Faculty of Computing|BS Computer Science|Fall-2024|A|4|03137652290|ahmedraza12@gmail.com|Ahmed12..|Pending
+BSMLT25101073|Kamyar |Tahir|Male|20|Faculty of Allied Health Sciences|BSMLT|Spring-2025|B|3|03148734094|kamyartahir@gmail.com|k@my@r..|Pending
