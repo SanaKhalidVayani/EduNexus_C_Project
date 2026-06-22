@@ -1534,44 +1534,112 @@ void manageSubjects()
         }
     }
 }
-
 void manageTimetable()
 {
     FILE *fp;
+    int choice;
 
-    fp = fopen("timetable.txt","a");
-
-    if(fp == NULL)
+    while(1)
     {
-        printf("\nFile could not be opened!");
-        return;
+        printf("\n===== Manage Timetable =====");
+        printf("\n1. Assign Student Timetable");
+        printf("\n2. Assign Teacher Timetable");
+        printf("\n3. Back");
+
+        printf("\n\nEnter Choice: ");
+        scanf("%d",&choice);
+
+        switch(choice)
+        {
+            case 1:
+
+                fp=fopen("student_timetable.txt","a");
+
+                if(fp==NULL)
+                {
+                    printf("\nFile could not be opened!\n");
+                    break;
+                }
+
+                printf("\nEnter Student ID: ");
+                scanf("%s",tt.id);
+
+                fflush(stdin);
+
+                printf("Enter Day: ");
+                scanf(" %[^\n]",tt.day);
+
+                printf("Enter Time: ");
+                scanf(" %[^\n]",tt.time);
+
+                printf("Enter Subject: ");
+                scanf(" %[^\n]",tt.subject);
+
+                printf("Enter Room: ");
+                scanf("%s",tt.room);
+
+                fprintf(fp,"%s|%s|%s|%s|%s\n",
+                        tt.id,
+                        tt.day,
+                        tt.time,
+                        tt.subject,
+                        tt.room);
+
+                fclose(fp);
+
+                printf("\nStudent Timetable Assigned Successfully!\n");
+
+                break;
+
+
+            case 2:
+
+                fp=fopen("teacher_timetable.txt","a");
+
+                if(fp==NULL)
+                {
+                    printf("\nFile could not be opened!\n");
+                    break;
+                }
+
+                printf("\nEnter Teacher ID: ");
+                scanf("%s",tt.id);
+
+                fflush(stdin);
+
+                printf("Enter Day: ");
+                scanf(" %[^\n]",tt.day);
+
+                printf("Enter Time: ");
+                scanf(" %[^\n]",tt.time);
+
+                printf("Enter Subject: ");
+                scanf(" %[^\n]",tt.subject);
+
+                printf("Enter Room: ");
+                scanf("%s",tt.room);
+
+                fprintf(fp,"%s|%s|%s|%s|%s\n",
+                        tt.id,
+                        tt.day,
+                        tt.time,
+                        tt.subject,
+                        tt.room);
+
+                fclose(fp);
+
+                printf("\nTeacher Timetable Assigned Successfully!\n");
+
+                break;
+
+
+            case 3:
+                return;
+
+            default:
+                printf("\nInvalid Choice!\n");
+        }
     }
-
-    printf("\n===== Manage Timetable =====");
-
-    fflush(stdin);
-
-    printf("\nEnter Day: ");
-    scanf(" %[^\n]",tt.day);
-
-    printf("Enter Subject: ");
-    scanf(" %[^\n]",tt.subject);
-
-    printf("Enter Time: ");
-    scanf(" %[^\n]",tt.time);
-
-    printf("Enter Room Number: ");
-    scanf("%s",tt.room);
-
-    fprintf(fp,"%s|%s|%s|%s\n",
-            tt.day,
-            tt.subject,
-            tt.time,
-            tt.room);
-
-    fclose(fp);
-
-    printf("\nTimetable Added Successfully!\n");
 }
 
 void manageFees()
@@ -2451,30 +2519,6 @@ void postAnnouncements()
     fclose(fp);
 
     printf("\nAnnouncement Posted Successfully!\n");
-}
-
-void viewTimetable()
-{
-    FILE *fp;
-
-    char line[500];
-
-    fp = fopen("timetable.txt","r");
-
-    if(fp == NULL)
-    {
-        printf("\nNo Timetable Found!\n");
-        return;
-    }
-
-    printf("\n===== Timetable =====\n\n");
-
-    while(fgets(line,sizeof(line),fp)!=NULL)
-    {
-        printf("%s",line);
-    }
-
-    fclose(fp);
 }
 
 void viewTeacherTimetable()
