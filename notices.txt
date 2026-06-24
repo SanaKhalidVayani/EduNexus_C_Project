@@ -1,1 +1,10 @@
 Presentation|ICT Presentation date: 22/06/2026
+Quiz|PF Quiz will be held on 24/06/2026
+Assignment|OOP Assignment 2 deadline: 24/06/2026
+Project|DBMS Project proposal submission: 28/06/2026
+Lab|DSA Lab evaluation on 30/06/2026
+Quiz|AI Quiz 1 on 30/06/2026
+Presentation|Software Engineering presentation on 02/07/2026
+Assignment|Psychology case study submission on 05/07/2026
+Assignment|Accounting assignment submission on 27/06/2026
+Practical|Anatomy practical assessment on 08/07/2026

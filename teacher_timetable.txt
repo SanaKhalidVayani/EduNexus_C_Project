@@ -1,1 +1,10 @@
-T001|20/06/2026|08:40-11:30|OOP|406
+T001|Wednesday|08:30-10:30|ICT|Room-201
+T002|Monday|08:30-10:30|Programming Fundamentals|Lab-G
+T003|Tuesday|10:30-12:00|OOP|Room-204
+T004|Friday|10:30-12:00|Data Structures|Room-205
+T005|Thursday|01:00-03:00|Database Systems|Lab-B
+T006|Monday|01:00-03:00|Computer Networks|Room-210
+T007|Wednesday|01:00-03:00|Software Engineering|Room-211
+T008|Monday|08:30-10:30|Artificial Intelligence|Lab-AI
+T009|Thursday|10:30-12:00|Introduction to Psychology|Room-401
+T010|Monday|08:30-10:30|Financial Accounting|Room-301

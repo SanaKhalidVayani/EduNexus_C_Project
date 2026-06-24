@@ -1,1 +1,10 @@
-BEd25101003|Daniya Ahmed|Ahmed Shahid|Female|19|Bachelors of Education|BEd|Fall-2025|A|2|03219836387|DAS07@gmail.com|Daniya...|Pending
+BSCS26101021|Abdullah Khan|Khalid Khan|Male|19|Faculty of Computing|Fall-26|A|1|03161122334|abdullah@gmail.com|abd123..|Pending
+BSCS26101022|Areeba Noor|Noor Ahmed|Female|18|Faculty of Computing|Fall-26|A|1|03161122335|areeba@gmail.com|areeba12..|Pending
+BSSE26101023|Hassan Ali|Ali Hassan|Male|19|Faculty of Computing|Fall-26|B|1|03161122336|hassan@gmail.com|hassan12..|Pending
+BSSE26101024|Minal Khan|Imran Khan|Female|18|Faculty of Computing|Fall-26|B|1|03161122337|minal@gmail.com|minal12..|Pending
+BSIT26101025|Talal Ahmed|Ahmed Raza|Male|19|Faculty of Computing|Fall-26|A|1|03161122338|talal@gmail.com|talal12..|Pending
+BSAI26101026|Eman Noor|Noor Alam|Female|18|Faculty of Computing|Fall-26|A|1|03161122339|eman@gmail.com|eman12..|Pending
+BBA26101027|Adeel Khan|Khan Ahmed|Male|19|Faculty of Management Sciences|Fall-26|A|1|03161122340|adeelk@gmail.com|adeel12..|Pending
+BSPY26101028|Sana Tariq|Tariq Ahmed|Female|18|Faculty of Social Sciences|Fall-26|A|1|03161122341|sanat@gmail.com|sana12..|Pending
+DPT26101029|Fatima Noor|Noor Hassan|Female|19|Faculty of Allied Health Sciences|Fall-26|A|1|03161122342|fatiman@gmail.com|fatima12..|Pending
+MLT26101030|Hamza Ali|Ali Raza|Male|19|Faculty of Allied Health Sciences|Fall-26|A|1|03161122343|hamzaa@gmail.com|hamza12..|Pending

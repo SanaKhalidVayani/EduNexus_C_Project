@@ -113,6 +113,11 @@ struct Fee f;
 struct Timetable
 {
     char id[20];
+
+    char program[50];
+    char batch[20];
+    char section[10];
+
     char day[20];
     char time[30];
     char subject[50];
@@ -134,6 +139,9 @@ char line[500];
 
 char currentStudentID[20];
 char currentTeacherID[20];
+char currentProgram[50];
+char currentBatch[20];
+char currentSection[10];
 
 void mainMenu();
 
@@ -448,82 +456,101 @@ void studentSignup()
 void studentLogin()
 {
     FILE *fp;
-
-    char line[500];
-    char copy[500];
-
-    char studentID[20];
-    char password[20];
-
-    char fileStudentID[20];
-    char filePassword[20];
-
+    char line[500], copy[500];
+    char studentID[20], password[20];
+    char fileStudentID[20], filePassword[20];
     char *token;
-
-    int found = 0;
+    int found=0;
 
     printf("\n===== Student Login =====");
 
     printf("\nEnter Student ID: ");
-    scanf("%s", studentID);
+    scanf("%s",studentID);
 
     printf("Enter Password: ");
-    scanf("%s", password);
+    scanf("%s",password);
 
-    fp = fopen("students.txt", "r");
+    fp=fopen("students.txt","r");
 
-    if(fp == NULL)
+    if(fp!=NULL)
     {
-        printf("\nNo Approved Students Found!\n");
-        return;
+        while(fgets(line,sizeof(line),fp)!=NULL)
+        {
+            strcpy(copy,line);
+
+            token=strtok(copy,"|");
+            strcpy(fileStudentID,token);
+
+            token=strtok(NULL,"|");
+            token=strtok(NULL,"|");
+            token=strtok(NULL,"|");
+            token=strtok(NULL,"|");
+            token=strtok(NULL,"|");
+
+            strcpy(currentProgram,token);
+
+            token=strtok(NULL,"|");
+
+            strcpy(currentBatch,token);
+
+            token=strtok(NULL,"|");
+
+            strcpy(currentSection,token);
+
+            token=strtok(NULL,"|");
+            token=strtok(NULL,"|");
+            token=strtok(NULL,"|");
+            token=strtok(NULL,"|");
+
+            strcpy(filePassword,token);
+
+            if(strcmp(studentID,fileStudentID)==0 &&
+               strcmp(password,filePassword)==0)
+            {
+                found=1;
+
+                strcpy(currentStudentID,studentID);
+
+                break;
+            }
+        }
+
+        fclose(fp);
     }
-
-    while(fgets(line, sizeof(line), fp) != NULL)
-    {
-        strcpy(copy, line);
-
-        token = strtok(copy, "|");
-        strcpy(fileStudentID, token);
-
-        token = strtok(NULL, "|"); // name
-        token = strtok(NULL, "|"); // fatherName
-        token = strtok(NULL, "|"); // gender
-        token = strtok(NULL, "|"); // age
-        token = strtok(NULL, "|"); // department
-        token = strtok(NULL, "|"); // program
-        token = strtok(NULL, "|"); // batch
-        token = strtok(NULL, "|"); // section
-        token = strtok(NULL, "|"); // semester
-        token = strtok(NULL, "|"); // phone
-        token = strtok(NULL, "|"); // email
-        token = strtok(NULL, "|"); // password
-
-        strcpy(filePassword, token);
-
-        if(strcmp(studentID, fileStudentID) == 0 &&
-   strcmp(password, filePassword) == 0)
-{
-    found = 1;
-
-    strcpy(currentStudentID, studentID);
-
-    break;
-}
-    }
-
-    fclose(fp);
 
     if(found)
     {
         printf("\nLogin Successful!\n");
         studentDashboard();
+        return;
     }
-    else
-    {
-        printf("\nInvalid Student ID or Password!\n");
-    }
-}
 
+    fp=fopen("pending_students.txt","r");
+
+    if(fp!=NULL)
+    {
+        while(fgets(line,sizeof(line),fp)!=NULL)
+        {
+            strcpy(copy,line);
+
+            token=strtok(copy,"|");
+
+            if(strcmp(token,studentID)==0)
+            {
+                fclose(fp);
+
+                printf("\nYour account is pending approval.\n");
+                printf("Please wait for admin approval.\n");
+
+                return;
+            }
+        }
+
+        fclose(fp);
+    }
+
+    printf("\nInvalid Student ID or Password!\n");
+}
 void teacherSignup()
 {
     FILE *fp;
@@ -624,55 +651,73 @@ void teacherLogin()
 
     fp = fopen("teachers.txt", "r");
 
-    if(fp == NULL)
+    if(fp != NULL)
     {
-        printf("\nNo Approved Teachers Found!\n");
-        return;
+        while(fgets(line, sizeof(line), fp) != NULL)
+        {
+            strcpy(copy, line);
+
+            token = strtok(copy, "|");
+            strcpy(fileEmployeeID, token);
+
+            token = strtok(NULL, "|"); // name
+            token = strtok(NULL, "|"); // gender
+            token = strtok(NULL, "|"); // department
+            token = strtok(NULL, "|"); // qualification
+            token = strtok(NULL, "|"); // designation
+            token = strtok(NULL, "|"); // subject
+            token = strtok(NULL, "|"); // room
+            token = strtok(NULL, "|"); // experience
+            token = strtok(NULL, "|"); // phone
+            token = strtok(NULL, "|"); // email
+            token = strtok(NULL, "|"); // password
+
+            strcpy(filePassword, token);
+
+            if(strcmp(employeeID, fileEmployeeID) == 0 &&
+               strcmp(password, filePassword) == 0)
+            {
+                found = 1;
+                strcpy(currentTeacherID, employeeID);
+                break;
+            }
+        }
+
+        fclose(fp);
     }
-
-    while(fgets(line, sizeof(line), fp) != NULL)
-    {
-        strcpy(copy, line);
-
-        token = strtok(copy, "|");
-        strcpy(fileEmployeeID, token);
-
-        token = strtok(NULL, "|"); // name
-        token = strtok(NULL, "|"); // gender
-        token = strtok(NULL, "|"); // department
-        token = strtok(NULL, "|"); // qualification
-        token = strtok(NULL, "|"); // designation
-        token = strtok(NULL, "|"); // subject
-        token = strtok(NULL, "|"); // room
-        token = strtok(NULL, "|"); // experience
-        token = strtok(NULL, "|"); // phone
-        token = strtok(NULL, "|"); // email
-        token = strtok(NULL, "|"); // password
-
-        strcpy(filePassword, token);
-
-        if(strcmp(employeeID, fileEmployeeID) == 0 &&
-   strcmp(password, filePassword) == 0)
-{
-    found = 1;
-
-    strcpy(currentTeacherID, employeeID);
-
-    break;
-}
-    }
-
-    fclose(fp);
 
     if(found)
     {
         printf("\nLogin Successful!\n");
         teacherDashboard();
+        return;
     }
-    else
+
+    fp = fopen("pending_teachers.txt", "r");
+
+    if(fp != NULL)
     {
-        printf("\nInvalid Employee ID or Password!\n");
+        while(fgets(line, sizeof(line), fp) != NULL)
+        {
+            strcpy(copy, line);
+
+            token = strtok(copy, "|");
+
+            if(strcmp(token, employeeID) == 0)
+            {
+                fclose(fp);
+
+                printf("\nAccount is not approved yet!");
+                printf("\nPlease wait for admin approval.\n");
+
+                return;
+            }
+        }
+
+        fclose(fp);
     }
+
+    printf("\nInvalid Employee ID or Password!\n");
 }
 
 void adminLogin()
@@ -702,16 +747,14 @@ void adminLogin()
 void approveStudents()
 {
     FILE *fp, *temp, *approved;
-
-    char line[500];
-    char copy[500];
-    char approveID[20];
+    char line[500], copy[500];
+    char approveID[20], studentID[20];
     char *token;
-    char studentID[20];
+    int found = 0;
 
-    fp = fopen("pending_students.txt", "r");
+    fp = fopen("pending_students.txt","r");
 
-    if(fp == NULL)
+    if(fp==NULL)
     {
         printf("\nNo Pending Students Found!\n");
         return;
@@ -719,35 +762,38 @@ void approveStudents()
 
     printf("\n===== Pending Students =====\n\n");
 
-    while(fgets(line, sizeof(line), fp) != NULL)
+    while(fgets(line,sizeof(line),fp)!=NULL)
     {
-        printf("%s", line);
+        printf("%s",line);
     }
 
     fclose(fp);
 
     printf("\nEnter Student ID to approve: ");
-    scanf("%s", approveID);
+    scanf("%s",approveID);
 
-    fp = fopen("pending_students.txt", "r");
-    temp = fopen("temp.txt", "w");
-    approved = fopen("students.txt", "a");
+    fp = fopen("pending_students.txt","r");
+    temp = fopen("temp.txt","w");
+    approved = fopen("students.txt","a");
 
-    while(fgets(line, sizeof(line), fp) != NULL)
+    while(fgets(line,sizeof(line),fp)!=NULL)
     {
-        strcpy(copy, line);
+        strcpy(copy,line);
 
-        token = strtok(copy, "|");
-        strcpy(studentID, token);
+        token=strtok(copy,"|");
+        strcpy(studentID,token);
 
-        if(strcmp(studentID, approveID) == 0)
+        if(strcmp(studentID,approveID)==0)
         {
-            fprintf(approved, "%s", line);
+            found=1;
+
+            fprintf(approved,"%s",line);
+
             printf("\nStudent Approved Successfully!\n");
         }
         else
         {
-            fprintf(temp, "%s", line);
+            fprintf(temp,"%s",line);
         }
     }
 
@@ -756,7 +802,10 @@ void approveStudents()
     fclose(approved);
 
     remove("pending_students.txt");
-    rename("temp.txt", "pending_students.txt");
+    rename("temp.txt","pending_students.txt");
+
+    if(found==0)
+        printf("\nStudent ID not found!\n");
 }
 
 void approveTeachers()
@@ -766,10 +815,12 @@ void approveTeachers()
     char line[500];
     char copy[500];
     char approveID[20];
-    char *token;
     char employeeID[20];
+    char *token;
 
-    fp = fopen("pending_teachers.txt", "r");
+    int found = 0;
+
+    fp = fopen("pending_teachers.txt","r");
 
     if(fp == NULL)
     {
@@ -779,35 +830,56 @@ void approveTeachers()
 
     printf("\n===== Pending Teachers =====\n\n");
 
-    while(fgets(line, sizeof(line), fp) != NULL)
+    while(fgets(line,sizeof(line),fp)!=NULL)
     {
-        printf("%s", line);
+        printf("%s",line);
     }
 
     fclose(fp);
 
     printf("\nEnter Employee ID to approve: ");
-    scanf("%s", approveID);
+    scanf("%s",approveID);
 
-    fp = fopen("pending_teachers.txt", "r");
-    temp = fopen("temp.txt", "w");
-    approved = fopen("teachers.txt", "a");
+    fp = fopen("pending_teachers.txt","r");
+    temp = fopen("temp.txt","w");
+    approved = fopen("teachers.txt","a");
 
-    while(fgets(line, sizeof(line), fp) != NULL)
+    while(fgets(line,sizeof(line),fp)!=NULL)
     {
-        strcpy(copy, line);
+        strcpy(copy,line);
 
-        token = strtok(copy, "|");
-        strcpy(employeeID, token);
+        token = strtok(copy,"|");
+        strcpy(employeeID,token);
 
-        if(strcmp(employeeID, approveID) == 0)
+        if(strcmp(employeeID,approveID)==0)
         {
-            fprintf(approved, "%s", line);
+            found = 1;
+
+            char id[20],name[50],gender[10],dept[50];
+            char qualification[30],designation[30];
+            char subject[50],room[20];
+            char phone[20],email[50],password[20],status[20];
+            int experience;
+
+            sscanf(line,
+            "%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%d|%[^|]|%[^|]|%[^|]|%[^|\n]",
+            id,name,gender,dept,
+            qualification,designation,
+            subject,room,&experience,
+            phone,email,password,status);
+
+            fprintf(approved,
+            "%s|%s|%s|%s|%s|%s|%s|%s|%d|%s|%s|%s|Approved\n",
+            id,name,gender,dept,
+            qualification,designation,
+            subject,room,experience,
+            phone,email,password);
+
             printf("\nTeacher Approved Successfully!\n");
         }
         else
         {
-            fprintf(temp, "%s", line);
+            fprintf(temp,"%s",line);
         }
     }
 
@@ -816,7 +888,12 @@ void approveTeachers()
     fclose(approved);
 
     remove("pending_teachers.txt");
-    rename("temp.txt", "pending_teachers.txt");
+    rename("temp.txt","pending_teachers.txt");
+
+    if(found==0)
+    {
+        printf("\nTeacher ID not found!\n");
+    }
 }
 
 void adminDashboard()
@@ -1256,124 +1333,282 @@ void postAdminAnnouncement()
 void manageTeachers()
 {
     FILE *fp, *temp;
-    char line[500];
-    char copy[500];
-    char searchID[20];
-    char fileEmployeeID[20];
+    char line[500], copy[500];
+    char searchID[20], fileEmployeeID[20];
     char *token;
-    int choice, found = 0;
+    int choice, found=0;
 
     while(1)
     {
         printf("\n===== Manage Teachers =====");
-        printf("\n1. View Teachers");
-        printf("\n2. Search Teacher");
-        printf("\n3. Delete Teacher");
-        printf("\n4. Back");
+        printf("\n1. Add Teacher");
+        printf("\n2. View Teachers");
+        printf("\n3. Search Teacher");
+        printf("\n4. Update Teacher");
+        printf("\n5. Delete Teacher");
+        printf("\n6. Back");
 
         printf("\n\nEnter your choice: ");
         scanf("%d",&choice);
 
         switch(choice)
         {
-            case 1:
 
-                fp = fopen("teachers.txt","r");
+        case 1:
 
-                if(fp == NULL)
+            fp = fopen("teachers.txt","a");
+
+            if(fp==NULL)
+            {
+                printf("\nFile could not be opened!");
+                break;
+            }
+
+            printf("\nEnter Employee ID: ");
+            scanf("%s",t.employeeID);
+
+            fflush(stdin);
+
+            printf("Enter Name: ");
+            scanf(" %[^\n]",t.name);
+
+            printf("Enter Gender: ");
+            scanf("%s",t.gender);
+
+            fflush(stdin);
+
+            printf("Enter Department: ");
+            scanf(" %[^\n]",t.department);
+
+            printf("Enter Qualification: ");
+            scanf(" %[^\n]",t.qualification);
+
+            printf("Enter Designation: ");
+            scanf(" %[^\n]",t.designation);
+
+            printf("Enter Subject: ");
+            scanf(" %[^\n]",t.subject);
+
+            printf("Enter Room Number: ");
+            scanf("%s",t.room);
+
+            printf("Enter Experience: ");
+            scanf("%d",&t.experience);
+
+            printf("Enter Phone: ");
+            scanf("%s",t.phone);
+
+            printf("Enter Email: ");
+            scanf("%s",t.email);
+
+            printf("Enter CNIC: ");
+            scanf("%s",t.password);
+
+            strcpy(t.status,"Approved");
+
+            fprintf(fp,"%s|%s|%s|%s|%s|%s|%s|%s|%d|%s|%s|%s|%s\n",
+                    t.employeeID,
+                    t.name,
+                    t.gender,
+                    t.department,
+                    t.qualification,
+                    t.designation,
+                    t.subject,
+                    t.room,
+                    t.experience,
+                    t.phone,
+                    t.email,
+                    t.password,
+                    t.status);
+
+            fclose(fp);
+
+            printf("\nTeacher Added Successfully!\n");
+
+            break;
+
+
+        case 2:
+
+            fp = fopen("teachers.txt","r");
+
+            if(fp==NULL)
+            {
+                printf("\nNo Teachers Found!\n");
+                break;
+            }
+
+            printf("\n===== Teachers =====\n\n");
+
+            while(fgets(line,sizeof(line),fp)!=NULL)
+            {
+                printf("%s",line);
+            }
+
+            fclose(fp);
+
+            break;
+
+
+        case 3:
+
+            printf("\nEnter Employee ID: ");
+            scanf("%s",searchID);
+
+            fp = fopen("teachers.txt","r");
+
+            found=0;
+
+            while(fgets(line,sizeof(line),fp)!=NULL)
+            {
+                strcpy(copy,line);
+
+                token = strtok(copy,"|");
+                strcpy(fileEmployeeID,token);
+
+                if(strcmp(searchID,fileEmployeeID)==0)
                 {
-                    printf("\nNo Teachers Found!\n");
+                    printf("\n%s",line);
+                    found=1;
                     break;
                 }
+            }
 
-                printf("\n===== Teachers =====\n\n");
+            fclose(fp);
 
-                while(fgets(line,sizeof(line),fp)!=NULL)
+            if(found==0)
+                printf("\nTeacher Not Found!\n");
+
+            break;
+
+
+        case 4:
+
+            printf("\nEnter Employee ID to Update: ");
+            scanf("%s",searchID);
+
+            fp = fopen("teachers.txt","r");
+            temp = fopen("temp.txt","w");
+
+            found=0;
+
+            while(fgets(line,sizeof(line),fp)!=NULL)
+            {
+                sscanf(line,
+                       "%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%d|%[^|]|%[^|]|%[^|]|%[^|\n]",
+                       tempTeacher.employeeID,
+                       tempTeacher.name,
+                       tempTeacher.gender,
+                       tempTeacher.department,
+                       tempTeacher.qualification,
+                       tempTeacher.designation,
+                       tempTeacher.subject,
+                       tempTeacher.room,
+                       &tempTeacher.experience,
+                       tempTeacher.phone,
+                       tempTeacher.email,
+                       tempTeacher.password,
+                       tempTeacher.status);
+
+                if(strcmp(searchID,tempTeacher.employeeID)==0)
                 {
-                    printf("%s",line);
+                    found=1;
+
+                    fflush(stdin);
+
+                    printf("\nEnter New Department: ");
+                    scanf(" %[^\n]",tempTeacher.department);
+
+                    printf("Enter New Designation: ");
+                    scanf(" %[^\n]",tempTeacher.designation);
+
+                    printf("Enter New Subject: ");
+                    scanf(" %[^\n]",tempTeacher.subject);
+
+                    printf("Enter New Room Number: ");
+                    scanf("%s",tempTeacher.room);
+
+                    printf("Enter New Status: ");
+                    scanf("%s",tempTeacher.status);
                 }
 
-                fclose(fp);
-                break;
+                fprintf(temp,"%s|%s|%s|%s|%s|%s|%s|%s|%d|%s|%s|%s|%s\n",
+                        tempTeacher.employeeID,
+                        tempTeacher.name,
+                        tempTeacher.gender,
+                        tempTeacher.department,
+                        tempTeacher.qualification,
+                        tempTeacher.designation,
+                        tempTeacher.subject,
+                        tempTeacher.room,
+                        tempTeacher.experience,
+                        tempTeacher.phone,
+                        tempTeacher.email,
+                        tempTeacher.password,
+                        tempTeacher.status);
+            }
 
-            case 2:
+            fclose(fp);
+            fclose(temp);
 
-                printf("\nEnter Employee ID: ");
-                scanf("%s",searchID);
+            remove("teachers.txt");
+            rename("temp.txt","teachers.txt");
 
-                fp = fopen("teachers.txt","r");
+            if(found)
+                printf("\nTeacher Updated Successfully!\n");
+            else
+                printf("\nTeacher Not Found!\n");
 
-                found = 0;
+            break;
 
-                while(fgets(line,sizeof(line),fp)!=NULL)
+
+        case 5:
+
+            printf("\nEnter Employee ID to Delete: ");
+            scanf("%s",searchID);
+
+            fp = fopen("teachers.txt","r");
+            temp = fopen("temp.txt","w");
+
+            found=0;
+
+            while(fgets(line,sizeof(line),fp)!=NULL)
+            {
+                strcpy(copy,line);
+
+                token = strtok(copy,"|");
+                strcpy(fileEmployeeID,token);
+
+                if(strcmp(searchID,fileEmployeeID)==0)
                 {
-                    strcpy(copy,line);
-
-                    token = strtok(copy,"|");
-                    strcpy(fileEmployeeID,token);
-
-                    if(strcmp(searchID,fileEmployeeID)==0)
-                    {
-                        printf("\n%s",line);
-                        found = 1;
-                        break;
-                    }
+                    found=1;
                 }
-
-                fclose(fp);
-
-                if(found == 0)
-                {
-                    printf("\nTeacher Not Found!\n");
-                }
-
-                break;
-
-            case 3:
-
-                printf("\nEnter Employee ID to Delete: ");
-                scanf("%s",searchID);
-
-                fp = fopen("teachers.txt","r");
-                temp = fopen("temp.txt","w");
-
-                found = 0;
-
-                while(fgets(line,sizeof(line),fp)!=NULL)
-                {
-                    strcpy(copy,line);
-
-                    token = strtok(copy,"|");
-                    strcpy(fileEmployeeID,token);
-
-                    if(strcmp(searchID,fileEmployeeID)==0)
-                    {
-                        found = 1;
-                    }
-                    else
-                    {
-                        fprintf(temp,"%s",line);
-                    }
-                }
-
-                fclose(fp);
-                fclose(temp);
-
-                remove("teachers.txt");
-                rename("temp.txt","teachers.txt");
-
-                if(found)
-                    printf("\nTeacher Deleted Successfully!\n");
                 else
-                    printf("\nTeacher Not Found!\n");
+                {
+                    fprintf(temp,"%s",line);
+                }
+            }
 
-                break;
+            fclose(fp);
+            fclose(temp);
 
-            case 4:
-                return;
+            remove("teachers.txt");
+            rename("temp.txt","teachers.txt");
 
-            default:
-                printf("\nInvalid Choice!\n");
+            if(found)
+                printf("\nTeacher Deleted Successfully!\n");
+            else
+                printf("\nTeacher Not Found!\n");
+
+            break;
+
+
+        case 6:
+            return;
+
+
+        default:
+            printf("\nInvalid Choice!\n");
         }
     }
 }
@@ -1534,6 +1769,7 @@ void manageSubjects()
         }
     }
 }
+
 void manageTimetable()
 {
     FILE *fp;
@@ -1553,44 +1789,51 @@ void manageTimetable()
         {
             case 1:
 
-                fp=fopen("student_timetable.txt","a");
+fp=fopen("student_timetable.txt","a");
 
-                if(fp==NULL)
-                {
-                    printf("\nFile could not be opened!\n");
-                    break;
-                }
+if(fp==NULL)
+{
+    printf("\nFile could not be opened!\n");
+    break;
+}
 
-                printf("\nEnter Student ID: ");
-                scanf("%s",tt.id);
+fflush(stdin);
 
-                fflush(stdin);
+printf("\nEnter Program: ");
+scanf(" %[^\n]",tt.program);
 
-                printf("Enter Day: ");
-                scanf(" %[^\n]",tt.day);
+printf("Enter Batch: ");
+scanf(" %[^\n]",tt.batch);
 
-                printf("Enter Time: ");
-                scanf(" %[^\n]",tt.time);
+printf("Enter Section: ");
+scanf(" %[^\n]",tt.section);
 
-                printf("Enter Subject: ");
-                scanf(" %[^\n]",tt.subject);
+printf("Enter Day: ");
+scanf(" %[^\n]",tt.day);
 
-                printf("Enter Room: ");
-                scanf("%s",tt.room);
+printf("Enter Time: ");
+scanf(" %[^\n]",tt.time);
 
-                fprintf(fp,"%s|%s|%s|%s|%s\n",
-                        tt.id,
-                        tt.day,
-                        tt.time,
-                        tt.subject,
-                        tt.room);
+printf("Enter Subject: ");
+scanf(" %[^\n]",tt.subject);
 
-                fclose(fp);
+printf("Enter Room: ");
+scanf("%s",tt.room);
 
-                printf("\nStudent Timetable Assigned Successfully!\n");
+fprintf(fp,"%s|%s|%s|%s|%s|%s|%s\n",
+        tt.program,
+        tt.batch,
+        tt.section,
+        tt.day,
+        tt.time,
+        tt.subject,
+        tt.room);
 
-                break;
+fclose(fp);
 
+printf("\nStudent Timetable Assigned Successfully!\n");
+
+break;
 
             case 2:
 
@@ -2561,8 +2804,10 @@ void viewTeacherTimetable()
 void viewStudentTimetable()
 {
     FILE *fp;
-    char line[500], copy[500], fileID[20];
-    char *token;
+    char line[500];
+    char program[50],batch[20],section[10];
+    char day[20],time[30],subject[50],room[20];
+
     int found=0;
 
     fp=fopen("student_timetable.txt","r");
@@ -2577,14 +2822,17 @@ void viewStudentTimetable()
 
     while(fgets(line,sizeof(line),fp)!=NULL)
     {
-        strcpy(copy,line);
+        sscanf(line,
+        "%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%[^|]|%[^|\n]",
+        program,batch,section,day,time,subject,room);
 
-        token=strtok(copy,"|");
-        strcpy(fileID,token);
-
-        if(strcmp(fileID,currentStudentID)==0)
+        if(strcmp(program,currentProgram)==0 &&
+           strcmp(batch,currentBatch)==0 &&
+           strcmp(section,currentSection)==0)
         {
-            printf("%s",line);
+            printf("%s | %s | %s | %s\n",
+                   day,time,subject,room);
+
             found=1;
         }
     }

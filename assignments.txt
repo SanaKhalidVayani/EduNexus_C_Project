@@ -1,1 +1,10 @@
-OOP|OOP Assignment 2|24/06/2026
+Programming Fundamentals|PF Assignment 1|25/06/2026
+Programming Fundamentals|PF Assignment 2|05/07/2026
+OOP|OOP Assignment 1|24/06/2026
+OOP|OOP Assignment 2|05/07/2026
+Database Systems|DBMS ERD Project|10/07/2026
+Data Structures|Linked List Lab|28/06/2026
+Artificial Intelligence|AI Quiz 1|30/06/2026
+Artificial Intelligence|AI Assignment|12/07/2026
+Financial Accounting|Accounting Assignment 1|27/06/2026
+Human Anatomy|Anatomy Practical File|08/07/2026

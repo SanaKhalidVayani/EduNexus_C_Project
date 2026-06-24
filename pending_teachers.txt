@@ -1,1 +1,5 @@
-T003|Razi Zaid|Male|Faculty of Social Sciences|MS Psychology|Lecturer|Psychology|2|03165569842|r@z1zaid@gmail.com|R@z!..|Pending
+T011|Farhan Ahmed|Male|Faculty of Computing|BSCS|Lecturer|Operating Systems|314|3|03170000001|farhan@gmail.com|farhan12..|Pending
+T012|Ayesha Noor|Female|Faculty of Computing|BSIT|Lecturer|Web Engineering|315|2|03170000002|ayesha@gmail.com|ayesha12..|Pending
+T013|Zeeshan Ali|Male|Faculty of Computing|BSAI|Assistant Professor|Machine Learning|316|6|03170000003|zeeshan@gmail.com|zeeshan12..|Pending
+T014|Maham Khan|Female|Faculty of Social Sciences|BSPsychology|Lecturer|Developmental Psychology|317|4|03170000004|maham@gmail.com|maham12..|Pending
+T015|Usman Tariq|Male|Faculty of Management Sciences|BBA|Lecturer|Marketing Management|318|5|03170000005|usmant@gmail.com|usman12..|Pending

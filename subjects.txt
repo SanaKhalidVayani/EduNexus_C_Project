@@ -1,3 +1,46 @@
 CSC101|ICT|3
-AHS209|Anatomy|3
-SS102|Psychology|3
+CSC102|Programming Fundamentals|3
+CSC103|OOP|3
+CSC104|Data Structures|3
+CSC105|Database Systems|3
+CSC106|Computer Networks|3
+CSC107|Software Engineering|3
+CSC108|Artificial Intelligence|3
+CSC109|Machine Learning|3
+CSC110|Web Engineering|3
+CSC111|Operating Systems|3
+CSC112|Computer Graphics|3
+CSC113|Discrete Structures|3
+CSC114|Digital Logic Design|3
+CSC115|Probability & Statistics|3
+
+BBA101|Principles of Management|3
+BBA102|Financial Accounting|3
+BBA103|Business Mathematics|3
+BBA104|Marketing Management|3
+BBA105|Human Resource Management|3
+BBA106|Business Communication|3
+
+PSY101|Introduction to Psychology|3
+PSY102|Developmental Psychology|3
+PSY103|Social Psychology|3
+PSY104|Abnormal Psychology|3
+PSY105|Counseling Psychology|3
+
+DPT101|Human Anatomy|3
+DPT102|Human Physiology|3
+DPT103|Biomechanics|3
+DPT104|Exercise Physiology|3
+DPT105|Physical Therapy Assessment|3
+
+MLT101|Clinical Chemistry|3
+MLT102|Hematology|3
+MLT103|Microbiology|3
+MLT104|Histopathology|3
+MLT105|Immunology|3
+
+UNI101|English Composition|3
+UNI102|Pakistan Studies|2
+UNI103|Islamic Studies|2
+UNI104|Communication Skills|3
+UNI105|Applied Mathematics|3

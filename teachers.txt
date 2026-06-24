@@ -1,2 +1,10 @@
-T001|Danish Taimoor|Male|Faculty of Computing|MS Artificial Intelligence|Lecturer|ICT|304|2|03169988670|dani29@gmail.com|D@nish..|Pending
-T002|Samia Laraib|Female|Faculty of Allied Health Science|MBBS|Lecturer|Anatomy|402|3|03246742011|dr.samia123@gmail.com|dr.sam123|Pending
+T001|Danish Taimoor|Male|Faculty of Computing|BSCS|Lecturer|ICT|304|2|03169988670|dani29@gmail.com|D@nish..|Approved
+T002|Asma Tariq|Female|Faculty of Computing|BSCS|Lecturer|Programming Fundamentals|305|5|03161111111|asma@gmail.com|asma12..|Approved
+T003|Yasmeen Ali|Female|Faculty of Computing|BSCS|Assistant Professor|OOP|306|7|03162222222|yasmeen@gmail.com|yasmeen12..|Approved
+T004|Imran Khan|Male|Faculty of Computing|BSCS|Lecturer|Data Structures|307|4|03163333333|imran@gmail.com|imran12..|Approved
+T005|Adeel Raza|Male|Faculty of Computing|BSCS|Lecturer|Database Systems|308|3|03164444444|adeel@gmail.com|adeel12..|Approved
+T006|Usman Ali|Male|Faculty of Computing|BSCS|Lecturer|Computer Networks|309|2|03165555555|usman@gmail.com|usman12..|Approved
+T007|Hina Noor|Female|Faculty of Computing|BSCS|Assistant Professor|Software Engineering|310|6|03166666666|hina@gmail.com|hina12..|Approved
+T008|Bilal Ahmed|Male|Faculty of Computing|BSAI|Professor|Artificial Intelligence|311|10|03167777777|bilal@gmail.com|bilal12..|Approved
+T009|Sara Malik|Female|Faculty of Social Sciences|BSPsychology|Lecturer|Psychology|312|5|03168888888|sara@gmail.com|sara12..|Approved
+T010|Hamza Tariq|Male|Faculty of Management Sciences|BBA|Lecturer|Accounting|313|3|03169999999|hamza@gmail.com|hamza12..|Approved

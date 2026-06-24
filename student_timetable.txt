@@ -1,1 +1,33 @@
-BSCS24101023|20/06/2026|08:40-11:30|OOP|406
+BSCS|Fall-24|A|Monday|08:30-10:30|Programming Fundamentals|Lab-G
+BSCS|Fall-24|A|Tuesday|10:30-12:00|OOP|Room-204
+BSCS|Fall-24|A|Wednesday|08:30-10:30|ICT|Room-201
+BSCS|Fall-24|A|Thursday|01:00-03:00|Database Systems|Lab-B
+BSCS|Fall-24|A|Friday|10:30-12:00|Data Structures|Room-205
+
+BSCS|Fall-24|B|Monday|10:30-12:00|Programming Fundamentals|Lab-G
+BSCS|Fall-24|B|Tuesday|08:30-10:30|OOP|Room-204
+BSCS|Fall-24|B|Wednesday|10:30-12:00|ICT|Room-201
+BSCS|Fall-24|B|Thursday|01:00-03:00|Database Systems|Lab-B
+BSCS|Fall-24|B|Friday|08:30-10:30|Data Structures|Room-205
+
+BSSE|Spring-25|A|Monday|08:30-10:30|Programming Fundamentals|Lab-C
+BSSE|Spring-25|A|Tuesday|10:30-12:00|OOP|Room-202
+BSSE|Spring-25|A|Wednesday|01:00-03:00|ICT|Room-201
+
+BSIT|Spring-25|A|Monday|10:30-12:00|ICT|Room-201
+BSIT|Spring-25|A|Tuesday|01:00-03:00|Database Systems|Lab-A
+BSIT|Spring-25|A|Wednesday|08:30-10:30|Programming Fundamentals|Lab-C
+
+BSAI|Spring-25|B|Monday|08:30-10:30|Artificial Intelligence|Lab-AI
+BSAI|Spring-25|B|Tuesday|10:30-12:00|Machine Learning|Lab-AI
+BSAI|Spring-25|B|Wednesday|01:00-03:00|Database Systems|Lab-B
+
+BBA|Spring-25|A|Monday|08:30-10:30|Financial Accounting|Room-301
+BBA|Spring-25|A|Tuesday|10:30-12:00|Marketing Management|Room-302
+BBA|Spring-25|A|Wednesday|01:00-03:00|Human Resource Management|Room-303
+
+DPT|Spring-25|A|Monday|08:30-10:30|Human Anatomy|Lab-DPT
+DPT|Spring-25|A|Tuesday|10:30-12:00|Human Physiology|Lab-DPT
+
+BSMLT|Spring-25|A|Monday|08:30-10:30|Clinical Chemistry|Lab-MLT
+BSMLT|Spring-25|A|Tuesday|10:30-12:00|Microbiology|Lab-MLT

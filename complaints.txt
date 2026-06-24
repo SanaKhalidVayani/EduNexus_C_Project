@@ -1,1 +1,10 @@
-BSCS24101023|Net Issue|University internet is not working for 2 days.Please fix it.|Pending
+BSCS24101001|Internet Issue|University internet is not working properly.|Resolved
+BSCS24101002|Lift Issue|Lift is not operational in Block A.|Pending
+BSCS24101003|Projector Issue|Projector not working in Room 204.|Resolved
+BSCS24101004|Washroom Issue|Washroom cleanliness issue.|Pending
+BSCS24101005|AC Issue|Air conditioner not working.|Resolved
+BSCS24101006|Library Timing|Library should remain open till evening.|Pending
+BSCS24101007|Cafeteria Issue|Food quality needs improvement.|Resolved
+BSCS24101008|Transport Issue|University bus arrives late.|Pending
+BSCS24101009|Parking Issue|Parking space is insufficient.|Resolved
+BSCS24101010|Internet Issue|WiFi disconnects frequently.|Pending

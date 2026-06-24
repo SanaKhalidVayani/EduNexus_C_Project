@@ -1,2 +1,20 @@
-BSCS24101023|Ahmed Raza|Raza Ahmed|Male|21|Faculty of Computing|BS Computer Science|Fall-2024|A|4|03137652290|ahmedraza12@gmail.com|Ahmed12..|Pending
-BSMLT25101073|Kamyar |Tahir|Male|20|Faculty of Allied Health Sciences|BSMLT|Spring-2025|B|3|03148734094|kamyartahir@gmail.com|k@my@r..|Pending
+BSCS24101001|Ahmed Raza|Raza Ali|Male|21|Faculty of Computing|Fall-24|A|4|03167305184|ahmedraza@gmail.com|ahmed12..|Approved
+BSCS24101002|Ali Hamza|Hamid Ali|Male|20|Faculty of Computing|Fall-24|A|4|03161234567|alihamza@gmail.com|ali123..|Approved
+BSCS24101003|Sara Khan|Imran Khan|Female|20|Faculty of Computing|Fall-24|A|4|03162345678|sarakhan@gmail.com|sara123..|Approved
+BSCS24101004|Hina Noor|Noor Ahmed|Female|21|Faculty of Computing|Fall-24|A|4|03163456789|hina@gmail.com|hina123..|Approved
+BSCS24101005|Usman Tariq|Tariq Mehmood|Male|22|Faculty of Computing|Fall-24|A|4|03164567890|usman@gmail.com|usman12..|Approved
+BSCS24101006|Bilal Ahmed|Ahmed Raza|Male|21|Faculty of Computing|Fall-24|B|4|03165678901|bilal@gmail.com|bilal12..|Approved
+BSCS24101007|Ayesha Malik|Malik Aslam|Female|20|Faculty of Computing|Fall-24|B|4|03166789012|ayesha@gmail.com|ayesha12..|Approved
+BSCS24101008|Zain Ali|Ali Akbar|Male|21|Faculty of Computing|Fall-24|B|4|03167890123|zain@gmail.com|zain123..|Approved
+BSCS24101009|Maham Khan|Khalid Khan|Female|20|Faculty of Computing|Fall-24|B|4|03168901234|maham@gmail.com|maham12..|Approved
+BSCS24101010|Hamza Saeed|Saeed Ahmed|Male|22|Faculty of Computing|Fall-24|B|4|03169012345|hamza@gmail.com|hamza12..|Approved
+BSSE25101011|Danish Ali|Ali Hassan|Male|20|Faculty of Computing|Spring-25|A|2|03160123456|danish@gmail.com|danish12..|Approved
+BSSE25101012|Iqra Noor|Noor Hassan|Female|19|Faculty of Computing|Spring-25|A|2|03160234567|iqra@gmail.com|iqra123..|Approved
+BSIT25101013|Talha Khan|Rashid Khan|Male|20|Faculty of Computing|Spring-25|A|2|03160345678|talha@gmail.com|talha12..|Approved
+BSIT25101014|Fatima Zahra|Ali Raza|Female|19|Faculty of Computing|Spring-25|A|2|03160456789|fatima@gmail.com|fatima12..|Approved
+BSAI25101015|Hasan Raza|Raza Ahmed|Male|20|Faculty of Computing|Spring-25|B|2|03160567890|hasan@gmail.com|hasan12..|Approved
+BSAI25101016|Amna Khan|Shahid Khan|Female|20|Faculty of Computing|Spring-25|B|2|03160678901|amna@gmail.com|amna123..|Approved
+BBA25101017|Adeel Ahmed|Ahmed Ali|Male|21|Faculty of Management Sciences|Spring-25|A|2|03160789012|adeel@gmail.com|adeel12..|Approved
+BBA25101018|Sana Malik|Malik Ahmed|Female|20|Faculty of Management Sciences|Spring-25|A|2|03160890123|sana@gmail.com|sana123..|Approved
+DPT25101019|Maryam Noor|Noor Alam|Female|20|Faculty of Allied Health Sciences|Spring-25|A|2|03160901234|maryam@gmail.com|maryam12..|Approved
+BSMLT25101020|Umer Farooq|Farooq Ahmed|Male|21|Faculty of Allied Health Sciences|Spring-25|A|2|03161012345|umer@gmail.com|umer123..|Approved
